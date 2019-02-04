@@ -6,8 +6,8 @@ import Task from "./Task/Task.js";
 class App extends Component {
     state ={
         tasks: [
-            {id: 1, task: 'Убрать мусор'},
-            {id: 2, task: 'Сделать домашку'},
+            {id: 1, task: 'Убрать мусор', status: true},
+            {id: 2, task: 'Сделать домашку', status: false},
         ],
         currentTask: {task: ''},
     };
@@ -43,6 +43,7 @@ class App extends Component {
         let task = {...this.state.currentTask};
         const now = new Date();
         task.id = now.getDate();
+        task.status = false;
         let tasks = [...this.state.tasks, task];
         this.setState({
             ...this.state,
@@ -53,6 +54,22 @@ class App extends Component {
 
     isAddButtonDisabled = () => {
         return this.state.currentTask.task === ''
+    };
+
+    onChange = (id) => {
+        let taskId = this.state.tasks.findIndex(task =>
+            task.id === id
+        );
+        const tasks = [...this.state.tasks];
+        if(tasks[taskId].status === true) {
+            tasks[taskId].status = false;
+        }
+
+        else if(tasks[taskId].status === false) {
+            tasks[taskId].status = true;
+        }
+
+        this.setState({tasks})
     };
 
     render() {
@@ -68,7 +85,9 @@ class App extends Component {
                     return <Task
                         key={task.id}
                         task={task.task}
+                        status={task.status}
                         onDelete={() => this.deleteTask(task.id)}
+                        onChange={() => this.onChange(task.id)}
                     />
                     })
                 }
