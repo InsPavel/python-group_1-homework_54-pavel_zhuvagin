@@ -6,5 +6,10 @@
 }
 
 .task_style p {
+    display: inline-block;
     margin: 5px;
+}
+
+.task_style button {
+    float: right;
 }
