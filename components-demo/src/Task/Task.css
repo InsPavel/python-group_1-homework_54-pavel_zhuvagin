@@ -11,5 +11,10 @@
 }
 
 .task_style button {
+    background: url(../img/delete.png) 50% 50% no-repeat;
+    background-size: contain;
+    border: 0px;
+    width: 30px;
+    height: 30px;
     float: right;
 }
