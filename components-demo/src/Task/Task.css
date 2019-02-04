@@ -1,0 +1,10 @@
+.task_style {
+    border: 2px solid black;
+    margin-bottom: 5px;
+    width: 70%;
+    padding: 5px;
+}
+
+.task_style p {
+    margin: 5px;
+}
