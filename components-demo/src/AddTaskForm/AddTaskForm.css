@@ -1,0 +1,14 @@
+.addtask_style {
+    width: 70%;
+    margin-bottom: 10px;
+}
+
+.addtask_style input {
+    width: 70%;
+    padding: 5px;
+    font-size: 14px;
+}
+
+.addtask_style button {
+    float: right;
+}
